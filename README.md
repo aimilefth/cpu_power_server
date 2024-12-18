@@ -46,7 +46,7 @@ This project provides a simple Flask server that returns CPU power metrics from 
 After the image is built, you can run a container:
 
 ```bash
-docker run -d --privileged -p 5000:5000 power-metrics
+docker run -d --privileged -p 5000:5000 --network=host power-metrics
 ```
 
 - `-d` runs the container in the background (detached).
@@ -56,7 +56,7 @@ docker run -d --privileged -p 5000:5000 power-metrics
 If you want to override the default port, you can set the `PORT` environment variable:
 
 ```bash
-docker run -d --privileged  -p 8080:8080 -e PORT=8080 power-metrics
+docker run -d --privileged  -p 8080:8080 -e PORT=8080 --network=host power-metrics
 ```
 
 Now, the Flask server will listen on port `8080` inside the container, and the host machine will map `8080` to the container port.
